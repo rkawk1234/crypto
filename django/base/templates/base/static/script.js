@@ -1,12 +1,12 @@
-var btc = document.getElementById("bitcoin");
-var btcpchange = document.getElementById("bChange");
-var eth = document.getElementById("ethereum");
-var doge = document.getElementById("dogecoin");
-var xrp = document.getElementById("ripple")
-var ape = document.getElementById("apecoin");
-var ave = document.getElementById("aave");
-var link = document.getElementById("chainlink");
-var uni = document.getElementById("uniswap");
+// var btc = document.getElementById("bitcoin");
+// var btcpchange = document.getElementById("bChange");
+// var eth = document.getElementById("ethereum");
+// var doge = document.getElementById("dogecoin");
+// var xrp = document.getElementById("ripple")
+// var ape = document.getElementById("apecoin");
+// var ave = document.getElementById("aave");
+// var link = document.getElementById("chainlink");
+// var uni = document.getElementById("uniswap");
 
 
 var settings = {
