@@ -42,23 +42,24 @@ body{
 table{
     font-family: Arial, sans-serif;
     border-collapse: collapse;
-    width: 100%;
-  }
+    width: 200%;
+    border: 5;
+}
 
-  td, th {
-      border: 1px solid #cccccc;
-      padding: 8px;
-  }
+td, th {
+    border: 1px solid #cccccc;
+    padding: 8px;
+}
 
-  th {
+th {
     font-weight: bold;
-  }
+}
 
-  tr:nth-child(even) {
+tr:nth-child(even) {
     background-color: #dddddd;
-  }
+}
 
-  tr:hover {
+tr:hover {
     background-color: black;
     color: white;
-  }
+}
