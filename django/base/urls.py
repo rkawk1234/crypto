@@ -10,7 +10,8 @@ urlpatterns = [
     path('allcryptos.html',views.allcryp),
     path('NFT.html',views.nft),
     path('aboutus.html',views.aboutus),
-    path('signin.html',views.signin)
+    path('signin.html',views.signin),
+    path('register.html', views.register)
 
 
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
