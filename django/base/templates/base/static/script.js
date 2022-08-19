@@ -1,4 +1,5 @@
 var btc = document.getElementById("bitcoin");
+var btcpchange = document.getElementById("bChange")
 var eth = document.getElementById("ethereum");
 var doge = document.getElementById("dogecoin");
 var xrp = document.getElementById("ripple")
@@ -18,6 +19,7 @@ var settings = {
 }
 $.ajax(settings).done(function(response){
     btc.innerHTML= response.bitcoin.cad;
+    btcpchange.innerHTML = response.bitcoin.
     eth.innerHTML= response.ethereum.cad;
     doge.innerHTML= response.dogecoin.cad;
     xrp.innerHTML = response.ripple.cad;
