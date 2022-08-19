@@ -26,6 +26,7 @@ def nft(request):
 
 def aboutus(request):
     return render(request,'base/aboutus.html')
+    
 @csrf_exempt
 def signin(request):
     if request.user.is_authenticated:

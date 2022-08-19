@@ -56,6 +56,14 @@ function loadTableData(cryptoData){
 
 
 
+var form_fields = document.getElementsByTagName('input')
+		form_fields[1].placeholder='Username..';
+		form_fields[2].placeholder='Email..';
+		form_fields[3].placeholder='Enter password...';
+		form_fields[4].placeholder='Re-enter Password...';
+ fa057d4d1b9171148c2c5c04776ef6c22600dffc
+
+
 // var form_fields = document.getElementsByTagName('input')
 // 		form_fields[1].placeholder='Username..';
 // 		form_fields[2].placeholder='Email..';
