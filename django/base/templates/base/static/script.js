@@ -36,7 +36,7 @@ let cryptoData = [
     {name:'Ethereum', price: '$2000'},
     {name:'Ripple', price: '$0.48'},
     {name:'Doge', price: '$0.10'}
-];
+]
 
 
 window.onload =() => {
@@ -53,7 +53,6 @@ function loadTableData(cryptoData){
 
     tableBody.innerHTML = dataHtml;
 }
-
 
 
 
