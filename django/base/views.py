@@ -1,9 +1,11 @@
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import authenticate, login, logout
 from django.views.decorators.csrf import csrf_exempt
 
-
+from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 from .models import *
 from .forms import CreateUserForm
@@ -26,7 +28,27 @@ def aboutus(request):
     return render(request,'base/aboutus.html')
 
 def signin(request):
-    return render(request,'base/signin.html')
+    if request.user.is_authenticated:
+        return redirect(home)
+    else:
+        if request.method =='POST':
+            username = request.POST.get('username')
+            password = request.POST.get('password')
+
+            user = authenticate(request,username=username,password=password)
+
+            if user is not None:
+                login(request,user)
+                return redirect(signin)
+
+            else:
+                messages.info(request,'Username OR password is incorrect')
+        context = {}
+        return render(request,'base/signin.html',context)
+
+def logoutUser(request):
+    logout(request)
+    return redirect('signin')
 
 @csrf_exempt
 
@@ -37,6 +59,9 @@ def register(request):
         form = CreateUserForm(request.POST)
         if form.is_valid():
             form.save()
+            user = form.cleaned_data.get('username')
+            messages.success(request, 'Account was created for '+ user)
+            return redirect(home)
     
     context = {'form': form}
 
