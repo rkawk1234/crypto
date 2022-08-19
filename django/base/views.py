@@ -26,7 +26,7 @@ def nft(request):
 
 def aboutus(request):
     return render(request,'base/aboutus.html')
-
+@csrf_exempt
 def signin(request):
     if request.user.is_authenticated:
         return redirect(home)
@@ -39,19 +39,19 @@ def signin(request):
 
             if user is not None:
                 login(request,user)
-                return redirect(signin)
+                return redirect(home)
 
             else:
                 messages.info(request,'Username OR password is incorrect')
+
         context = {}
         return render(request,'base/signin.html',context)
 
 def logoutUser(request):
     logout(request)
-    return redirect('signin')
+    return redirect(register)
 
 @csrf_exempt
-
 def register(request):
     form = CreateUserForm()
 

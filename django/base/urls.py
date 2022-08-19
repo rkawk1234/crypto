@@ -11,7 +11,8 @@ urlpatterns = [
     path('NFT.html',views.nft),
     path('aboutus.html',views.aboutus),
     path('signin.html',views.signin),
-    path('register.html', views.register)
+    path('register.html', views.register),
+    path('logout/', views.logoutUser, name="logout"),
 
 
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
