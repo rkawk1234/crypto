@@ -29,6 +29,7 @@ def signin(request):
     return render(request,'base/signin.html')
 
 @csrf_exempt
+
 def register(request):
     form = CreateUserForm()
 
@@ -38,4 +39,5 @@ def register(request):
             form.save()
     
     context = {'form': form}
+
     return render(request,'base/register.html',context)
