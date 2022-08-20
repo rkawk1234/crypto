@@ -26,21 +26,34 @@
             <li class="nav-item">
               <a class="nav-link" href="aboutus.html">About Us</a>
             </li>
+          </ul>
 
+          <ul class="navbar-nav me-auto">
 
-            <li class="nav-item" >
+            {% if user.is_authenticated %}
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+            </li>
+            
+            {% else %}
+
+            <li class="nav-item">
               <a class="nav-link" href="signin.html">Log in</a>
             </li>
+
+            {% endif %}
+
             <li class="nav-item">
               <a class="nav-link" href="register.html">Register</a>
             </li>
           </ul>
+          
           <!-- <form class="form-inline mt-2 mt-md-0">
             <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
           </form> -->
         </div>
-
-         <span ><a  class="hello-msg" href="{% url 'logout' %}">Logout</a></span>
+<!-- 
+         <span ><a  class="hello-msg" href="{% url 'logout' %}">Logout</a></span> -->
       </div>
   </nav>
