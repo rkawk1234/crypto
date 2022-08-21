@@ -17,6 +17,7 @@ var settings = {
     "headers": {}
 
 }
+
 // $.ajax(settings).done(function(response){
 //     btc.innerHTML= response.bitcoin.cad;
 //     btcpchange.innerHTML = response.bitcoin.
