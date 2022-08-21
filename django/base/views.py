@@ -50,7 +50,7 @@ def signin(request):
 
 def logoutUser(request):
     logout(request)
-    return redirect(register)
+    return redirect(home)
 
 @csrf_exempt
 def register(request):

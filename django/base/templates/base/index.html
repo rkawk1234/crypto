@@ -23,6 +23,17 @@
 
     <main role="main" class="container-fluid">
 
+        {% if user.is_superuser %}
+
+            <p>Admin logged in</p>
+
+        {% elif user.is_authenticated %}
+        <p>Ordinary User</p>
+        {%else%}
+        <p>Log in to proceed </p>
+
+        {% endif %}
+
 
     </main>
 
