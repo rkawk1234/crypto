@@ -1,12 +1,12 @@
-// var btc = document.getElementById("bitcoin");
-// var btcpchange = document.getElementById("bChange");
-// var eth = document.getElementById("ethereum");
-// var doge = document.getElementById("dogecoin");
-// var xrp = document.getElementById("ripple")
-// var ape = document.getElementById("apecoin");
-// var ave = document.getElementById("aave");
-// var link = document.getElementById("chainlink");
-// var uni = document.getElementById("uniswap");
+var btc = document.getElementById("bitcoin");
+var btcpchange = document.getElementById("bChange");
+var eth = document.getElementById("ethereum");
+var doge = document.getElementById("dogecoin");
+var xrp = document.getElementById("ripple")
+var ape = document.getElementById("apecoin");
+var ave = document.getElementById("aave");
+var link = document.getElementById("chainlink");
+var uni = document.getElementById("uniswap");
 
 
 var settings = {
@@ -18,20 +18,20 @@ var settings = {
 
 }
 
-// $.ajax(settings).done(function(response){
-//     btc.innerHTML= response.bitcoin.cad;
-//     btcpchange.innerHTML = response.bitcoin.
-//     eth.innerHTML= response.ethereum.cad;
-//     doge.innerHTML= response.dogecoin.cad;
-//     xrp.innerHTML = response.ripple.cad;
-//     ape.innerHTML = response.apecoin.cad;
-//     ave.innerHTML = response.aave.cad;
-//     link.innerHTML = response.chainlink.cad;
-//     uni.innerHTML = response.uniswap.cad;
-// });
+$.ajax(settings).done(function(response){
+    btc.innerHTML= response.bitcoin.cad;
+    btcpchange.innerHTML = response.bitcoin.
+    eth.innerHTML= response.ethereum.cad;
+    doge.innerHTML= response.dogecoin.cad;
+    xrp.innerHTML = response.ripple.cad;
+    ape.innerHTML = response.apecoin.cad;
+    ave.innerHTML = response.aave.cad;
+    link.innerHTML = response.chainlink.cad;
+    uni.innerHTML = response.uniswap.cad;
+});
 
 // Crypto Table
-let sortDirection = false;
+let sortDirection = true;
 let cryptoData = [
     {name:'Bitcoin', price: '$30000'},
     {name:'Ethereum', price: '$2000'},
@@ -40,7 +40,9 @@ let cryptoData = [
 ];
 
 window.onload =() => {
+
     loadTableData(cryptoData);
+
 };
 
 function loadTableData(cryptoData){
