@@ -37,12 +37,11 @@ let cryptoData = [
     {name:'Ethereum', price: '$2000'},
     {name:'Ripple', price: '$0.48'},
     {name:'Doge', price: '$0.10'}
-]
-
+];
 
 window.onload =() => {
     loadTableData(cryptoData);
-}
+};
 
 function loadTableData(cryptoData){
     const tableBody = document.getElementsByTagName('tableData');
@@ -53,9 +52,7 @@ function loadTableData(cryptoData){
     }
 
     tableBody.innerHTML = dataHtml;
-}
-
-
+};
 
 // var form_fields = document.getElementsByTagName('input')
 // 		form_fields[1].placeholder='Username..';
