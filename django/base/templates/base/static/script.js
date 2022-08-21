@@ -46,7 +46,6 @@ window.onload =() => {
 };
 
 function loadTableData(cryptoData){
-    
     const tableBody = document.getElementById('tableData');
     let dataHtml = '';
 

@@ -25,12 +25,15 @@
 
         {% if user.is_superuser %}
 
-            <p>Admin logged in</p>
+            {% include 'base/admin.html' %}
 
         {% elif user.is_authenticated %}
-        <p>Ordinary User</p>
+
+             {% include 'base/user.html' %}
+
         {%else%}
-        <p>Log in to proceed </p>
+
+            {% include 'base/nonUser.html' %}
 
         {% endif %}
 
