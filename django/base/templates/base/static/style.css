@@ -44,6 +44,7 @@ table{
     border-collapse: collapse;
     width: 200%;
     border: 5;
+    text-align: right;
 }
 
 td, th {
