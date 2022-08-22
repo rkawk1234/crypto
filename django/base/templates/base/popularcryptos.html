@@ -1,4 +1,5 @@
 {% load static %}
+{% load humanize %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,7 +29,35 @@
         <tbody id='tableData'></tbody>
         {% for i in apidata %}
           <tr>
+
             <td>{{i.name}}</td>
+            <td>${{i.current_price|intcomma}}</td>
+            <!--{{ price_a|floatformat:2 }}-->
+            {% if i.price_change_percentage_1h_in_currency > 0 %}
+            <td style="color: green">+
+            {% else %}
+            <td style="color:red">
+            {% endif %}
+            {{i.price_change_percentage_1h_in_currency|floatformat:8}}% </td>
+
+            {% if i.price_change_percentage_24h_in_currency > 0 %}
+            <td style="color: green">+
+            {% else %}
+            <td style="color:red">
+            {% endif %}
+            {{i.price_change_percentage_24h_in_currency|floatformat:8}}% </td>
+
+            {% if i.price_change_percentage_7d_in_currency > 0 %}
+            <td style="color: green">+
+            {% else %}
+            <td style="color:red">
+            {% endif %}
+            {{i.price_change_percentage_7d_in_currency|floatformat:8}}% </td>
+
+            <td>${{i.market_cap|intcomma}}</td>
+            
+
+
           </tr>
         {% endfor %}
       </table>
