@@ -2,7 +2,6 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-  <!-- aave,apecoin,bitcoin,chainlink,dogecoin,ethereum,ripple,uniswap -->
 <head>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -37,8 +36,23 @@
 
         {% endif %}
 
+        <div class="container" style="border:1px solid blue">
+            <div class="row">
+                <div class="col">
+                    <h2>Buy and trade virtually with our trading simulation on #WebsiteName</h2><br><br>
+                    <div class="input-group flex-wrap">
+                        <input class="form-control" type="email" placeholder="Email" id="useremail" name="useremail" style="margin-right: 10px;">
+                        <a href="signin.html" class="btn btn-dark" role="button">Get Started</a>
+                    </div>
+
+                </div>
+                <div class="col"><img src="{% static '/images/tradingsimulationHP.jpeg' %}" width="100%" height="100%"></div>
+            </div>
+        </div>
+        
 
     </main>
+
 
 
     <script src="{%static '/script.js'%}"></script>

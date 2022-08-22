@@ -30,6 +30,7 @@ $.ajax(settings).done(function(response){
     uni.innerHTML = response.uniswap.cad;
 });
 
+
 // Crypto Table
 // let sortDirection = true;
 // let cryptoData = [

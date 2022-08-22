@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "node-sparkline": "^1.2.0"
+  }
+}
