@@ -18,11 +18,11 @@ def home(request):
     return render(request,'base/index.html')
 
 def popular(request):
-    apidata = requests.get('https://api.coingecko.com/api/v3/coins/markets?vs_currency=cad&order=market_cap_desc&per_page=100&page=1&sparkline=true&price_change_percentage=1h%2C24h%2C7d').json()
-    return render(request,'base/popularcryptos.html', {'apidata':apidata})
+    return render(request,'base/popularcryptos.html')
 
 def allcryp(request):
-    return render(request,'base/allcryptos.html')
+    apidata = requests.get('https://api.coingecko.com/api/v3/coins/markets?vs_currency=cad&order=market_cap_desc&per_page=100&page=1&sparkline=true&price_change_percentage=1h%2C24h%2C7d').json()
+    return render(request,'base/allcryptos.html', {'apidata':apidata})
 
 def nft(request):
     return render(request,'base/NFT.html')

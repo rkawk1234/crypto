@@ -1,5 +1,4 @@
 {% load static %}
-{% load humanize %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,64 +10,128 @@
 
 
 
-  
+
+
 </head>
 
 <body>
-  
+
   <header>
-
     {% include 'base/nav.html' %}
+</header>
 
-  </header>
+<div class="container">
+  <div class="row">
+    <div class="col-3" style="border:1px solid red"><p align="left">Name</p></div>
+    <div class="col-2" style="border:1px solid red"><p align="right">Price</p></div>
+    <div class="col-1" style="border:1px solid red"><p align="right">1h</p></div>
+    <div class="col-1" style="border:1px solid red"><p align="right">24h</p></div>
+    <div class="col-1" style="border:1px solid red"><p align="right">7d</div>
+    <div class="col-2" style="border:1px solid red"><p align="right">Market Cap</p></div>
+    <div class="col-2" style="border:1px solid red"><p align="right">Last 7 Days</p></div>
+  </div>
 
-    <main role="main" class="container-fluid">
-      <table class="table">
+  <div class="row">
+    <div class="col-3" style="border:1px solid blue">
+      <div style="display:inline-block; vertical-align:center"><img src="{% static '/images/bitcoin_logo.png' %}" width="25" height="25"></div>
+      <div class="coin">Bitcoin</div></div>
+    <div class="col-2" style="border:1px solid blue"><p align="right">$<span id="bitcoin"></span> CAD</p></div>
+    <div class="col-1" style="border:1px solid blue"><p align="right">0.3%</p></div>
+    <div class="col-1" style="border:1px solid blue"><p align="right">1.5%</p></div>
+    <div class="col-1" style="border:1px solid blue"><p align="right">5%</p></div>
+    <div class="col-2" style="border:1px solid blue"><p align="right">$447,155,459,866</p></div>
+    <div class="col-2" style="border:1px solid blue"><p align="right">Chart</p></div>
+  </div>
 
-        <thead><tr><th style="text-align: left;">Name</th><th>Price</th><th>1h</th><th>24h</th><th>7d</th><th>Market Cap</th></tr></thead>
-        <tbody id='tableData'></tbody>
-        {% for i in apidata %}
-          <tr>
+  <div class="row">
+    <div class="col-3" style="border:1px solid blue">
+      <div style="display:inline-block; vertical-align:center"><img src="{% static '/images/ethereum.webp' %}" width="25" height="25"></div>
+      <div class="coin">Ethereum</div></div>
+    <div class="col-2" style="border:1px solid blue"><p align="right">$<span id="ethereum"></span> CAD</p></div>
+    <div class="col-1" style="border:1px solid blue"><p align="right">0.3%</p></div>
+    <div class="col-1" style="border:1px solid blue"><p align="right">1.5%</p></div>
+    <div class="col-1" style="border:1px solid blue"><p align="right">5%</p></div>
+    <div class="col-2" style="border:1px solid blue"><p align="right">$447,155,459,866</p></div>
+    <div class="col-2" style="border:1px solid blue"><p align="right">Chart</p></div>
+  </div>
 
-            <td>{{i.name}}</td>
-            <td>${{i.current_price|intcomma}}</td>
-            <!--{{ price_a|floatformat:2 }}-->
-            {% if i.price_change_percentage_1h_in_currency > 0 %}
-            <td style="color: green">+
-            {% else %}
-            <td style="color:red">
-            {% endif %}
-            {{i.price_change_percentage_1h_in_currency|floatformat:4}}% </td>
+  <div class="row">
+    <div class="col-3" style="border:1px solid blue">
+      <div style="display:inline-block; vertical-align:center"><img src="{% static '/images/xrp.png' %}" width="25" height="25"></div>
+      <div class="coin">Ripple</div></div>
+    <div class="col-2" style="border:1px solid blue"><p align="right">$<span id="ripple"></span> CAD</p></div>
+    <div class="col-1" style="border:1px solid blue"><p align="right">0.3%</p></div>
+    <div class="col-1" style="border:1px solid blue"><p align="right">1.5%</p></div>
+    <div class="col-1" style="border:1px solid blue"><p align="right">5%</p></div>
+    <div class="col-2" style="border:1px solid blue"><p align="right">$447,155,459,866</p></div>
+    <div class="col-2" style="border:1px solid blue"><p align="right">Chart</p></div>
+  </div>
 
-            {% if i.price_change_percentage_24h_in_currency > 0 %}
-            <td style="color: green">+
-            {% else %}
-            <td style="color:red">
-            {% endif %}
-            {{i.price_change_percentage_24h_in_currency|floatformat:4}}% </td>
+  <div class="row">
+    <div class="col-3" style="border:1px solid blue">
+      <div style="display:inline-block; vertical-align:center"><img src="{% static '/images/doge.png' %}" width="25" height="25"></div>
+      <div class="coin">Doge</div></div>
+    <div class="col-2" style="border:1px solid blue"><p align="right">$<span id="dogecoin"></span> CAD</p></div>
+    <div class="col-1" style="border:1px solid blue"><p align="right">0.3%</p></div>
+    <div class="col-1" style="border:1px solid blue"><p align="right">1.5%</p></div>
+    <div class="col-1" style="border:1px solid blue"><p align="right">5%</p></div>
+    <div class="col-2" style="border:1px solid blue"><p align="right">$447,155,459,866</p></div>
+    <div class="col-2" style="border:1px solid blue"><p align="right">Chart</p></div>
+  </div>
+<!-- 
+  <div class="row">
+    <div class="col-3" style="border:1px solid blue">
+      <div style="display:inline-block; vertical-align:center"><img src="{% static '/images/aave.webp' %}" width="25" height="25"></div>
+      <div class="coin">Aave</div></div>
+    <div class="col-2" style="border:1px solid blue"><p align="right">$<span id="aave"></span> CAD</p></div>
+    <div class="col-1" style="border:1px solid blue"><p align="right">0.3%</p></div>
+    <div class="col-1" style="border:1px solid blue"><p align="right">1.5%</p></div>
+    <div class="col-1" style="border:1px solid blue"><p align="right">5%</p></div>
+    <div class="col-2" style="border:1px solid blue"><p align="right">$447,155,459,866</p></div>
+    <div class="col-2" style="border:1px solid blue"><p align="right">Chart</p></div>
+  </div>
+  
+  <div class="row">
+    <div class="col-3" style="border:1px solid blue">
+      <div style="display:inline-block; vertical-align:center"><img src="{% static '/images/apecoin.webp' %}" width="25" height="25"></div>
+      <div class="coin">Apecoin</div></div>
+    <div class="col-2" style="border:1px solid blue"><p align="right">$<span id="apecoin"></span> CAD</p></div>
+    <div class="col-1" style="border:1px solid blue"><p align="right">0.3%</p></div>
+    <div class="col-1" style="border:1px solid blue"><p align="right">1.5%</p></div>
+    <div class="col-1" style="border:1px solid blue"><p align="right">5%</p></div>
+    <div class="col-2" style="border:1px solid blue"><p align="right">$447,155,459,866</p></div>
+    <div class="col-2" style="border:1px solid blue"><p align="right">Chart</p></div>
+  </div>
 
-            {% if i.price_change_percentage_7d_in_currency > 0 %}
-            <td style="color: green">+
-            {% else %}
-            <td style="color:red">
-            {% endif %}
-            {{i.price_change_percentage_7d_in_currency|floatformat:4}}% </td>
+  <div class="row">
+    <div class="col-3" style="border:1px solid blue">
+      <div style="display:inline-block; vertical-align:center"><img src="{% static '/images/chainlink.webp' %}" width="25" height="25"></div>
+      <div class="coin">Chainlink</div></div>
+    <div class="col-2" style="border:1px solid blue"><p align="right">$<span id="chainlink"></span> CAD</p></div>
+    <div class="col-1" style="border:1px solid blue"><p align="right">0.3%</p></div>
+    <div class="col-1" style="border:1px solid blue"><p align="right">1.5%</p></div>
+    <div class="col-1" style="border:1px solid blue"><p align="right">5%</p></div>
+    <div class="col-2" style="border:1px solid blue"><p align="right">$447,155,459,866</p></div>
+    <div class="col-2" style="border:1px solid blue"><p align="right">Chart</p></div>
+  </div>
+  
+  <div class="row">
+    <div class="col-3" style="border:1px solid blue">
+      <div style="display:inline-block; vertical-align:center"><img src="{% static '/images/uniswap.svg' %}" width="25" height="25"></div>
+      <div class="coin">Uniswap</div></div>
+    <div class="col-2" style="border:1px solid blue"><p align="right">$<span id="uniswap"></span> CAD</p></div>
+    <div class="col-1" style="border:1px solid blue"><p align="right">0.3%</p></div>
+    <div class="col-1" style="border:1px solid blue"><p align="right">1.5%</p></div>
+    <div class="col-1" style="border:1px solid blue"><p align="right">5%</p></div>
+    <div class="col-2" style="border:1px solid blue"><p align="right">$447,155,459,866</p></div>
+    <div class="col-2" style="border:1px solid blue"><p align="right">Chart</p></div>
+  </div> -->
 
-            <td>${{i.market_cap|intcomma}}</td>
-            
+</div>
 
-
-          </tr>
-        {% endfor %}
-      </table>
-
-    </main>
-
-<script src="{% static '/script.js' %}"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
- 
-    
-
+       <script src="{% static '/script.js' %}"></script>
+       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+  
     
 </body>
 </html>
