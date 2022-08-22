@@ -30,6 +30,14 @@ $.ajax(settings).done(function(response){
     uni.innerHTML = response.uniswap.cad;
 });
 
+
+// Moralis.initialize("xVyHlRGV9IpVN2S74xy11VKHFFKrdivYh4zsgDMi")
+// Moralis.serverURL = "https://9dobjy3xnbgv.usemoralis.com:2053/server"
+
+// async function getNFTs(){
+//     const options = {chain: 'eth', address:'0xf56345338cb4cddaf915ebef3bfde63e70fe3053'};
+//     const nfts = await Moralis.Web3.getNFTs(options);
+// }
 // Crypto Table
 // let sortDirection = true;
 // let cryptoData = [
