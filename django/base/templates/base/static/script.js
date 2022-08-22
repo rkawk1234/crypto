@@ -12,7 +12,7 @@ var uni = document.getElementById("uniswap");
 var settings = {
     "async": true,
     "scrossDomain": true,
-    "url": "https://api.coingecko.com/api/v3/coins/markets?vs_currency=cad&order=market_cap_desc&per_page=100&page=1&sparkline=true", //api changed.
+    "url": "https://api.https://api.coingecko.com/api/v3/coins/markets?vs_currency=cad&order=market_cap_desc&per_page=100&page=1&sparkline=true&price_change_percentage=1h%2C24h%2C7dcoingecko.com/api/v3/coins/markets?vs_currency=cad&order=market_cap_desc&per_page=100&page=1&sparkline=true",
     "method": "GET",
     "headers": {}
 
@@ -31,30 +31,30 @@ $.ajax(settings).done(function(response){
 });
 
 // Crypto Table
-let sortDirection = true;
-let cryptoData = [
-    {name:'Bitcoin', price: '$30000'},
-    {name:'Ethereum', price: '$2000'},
-    {name:'Ripple', price: '$0.48'},
-    {name:'Doge', price: '$0.10'}
-];
+// let sortDirection = true;
+// let cryptoData = [
+//     {name:'Bitcoin', price: '$30000'},
+//     {name:'Ethereum', price: '$2000'},
+//     {name:'Ripple', price: '$0.48'},
+//     {name:'Doge', price: '$0.10'}
+// ];
 
-window.onload =() => {
+// window.onload =() => {
 
-    loadTableData(cryptoData);
+//     loadTableData(cryptoData);
 
-};
+// };
 
-function loadTableData(cryptoData){
-    const tableBody = document.getElementById('tableData');
-    let dataHtml = '';
+// function loadTableData(cryptoData){
+//     const tableBody = document.getElementById('tableData');
+//     let dataHtml = '';
 
-    for(let crypto of cryptoData){
-        dataHtml += `<tr><td>${crypto.name}</td><td>${crypto.price}</td><td>${crypto.change1h}</td><td>${crypto.change24h}</td><td>${crypto.change7d}</td><td>${crypto.marketcap}</td><td>${crypto.last7days}</td></tr>`;
-    }
+//     for(let crypto of cryptoData){
+//         dataHtml += `<tr><td>${crypto.name}</td><td>${crypto.price}</td><td>${crypto.change1h}</td><td>${crypto.change24h}</td><td>${crypto.change7d}</td><td>${crypto.marketcap}</td><td>${crypto.last7days}</td></tr>`;
+//     }
 
-    tableBody.innerHTML = dataHtml;
-};
+//     tableBody.innerHTML = dataHtml;
+// };
 
 // var form_fields = document.getElementsByTagName('input')
 // 		form_fields[1].placeholder='Username..';

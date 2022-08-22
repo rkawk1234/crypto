@@ -23,13 +23,16 @@
 
   </header>
 
-
     <main role="main" class="container-fluid">
       <table class="table">
 
         <thead><tr><th style="text-align: left;">Name</th><th>Price</th><th>1h</th><th>24h</th><th>7d</th><th>Market Cap</th><th>Last 7 Days</th></tr></thead>
         <tbody id='tableData'></tbody>
-      
+        {% for i in apidata %}
+          <tr>
+            <td>{{i.name}}</td>
+          </tr>
+        {% endfor %}
       </table>
 
     </main>

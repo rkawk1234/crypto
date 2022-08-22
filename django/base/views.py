@@ -1,8 +1,10 @@
+import requests
 from django.http import HttpResponse
 from django.shortcuts import render,redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login, logout
 from django.views.decorators.csrf import csrf_exempt
+from django.conf import settings
 
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -16,7 +18,8 @@ def home(request):
     return render(request,'base/index.html')
 
 def popular(request):
-    return render(request,'base/popularcryptos.html')
+    apidata = requests.get('https://api.coingecko.com/api/v3/coins/markets?vs_currency=cad&order=market_cap_desc&per_page=100&page=1&sparkline=true&price_change_percentage=1h%2C24h%2C7d').json()
+    return render(request,'base/popularcryptos.html', {'apidata':apidata})
 
 def allcryp(request):
     return render(request,'base/allcryptos.html')
