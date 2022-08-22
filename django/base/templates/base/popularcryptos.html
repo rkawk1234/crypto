@@ -25,7 +25,7 @@
     <main role="main" class="container-fluid">
       <table class="table">
 
-        <thead><tr><th style="text-align: left;">Name</th><th>Price</th><th>1h</th><th>24h</th><th>7d</th><th>Market Cap</th><th>Last 7 Days</th></tr></thead>
+        <thead><tr><th style="text-align: left;">Name</th><th>Price</th><th>1h</th><th>24h</th><th>7d</th><th>Market Cap</th></tr></thead>
         <tbody id='tableData'></tbody>
         {% for i in apidata %}
           <tr>
@@ -38,21 +38,21 @@
             {% else %}
             <td style="color:red">
             {% endif %}
-            {{i.price_change_percentage_1h_in_currency|floatformat:8}}% </td>
+            {{i.price_change_percentage_1h_in_currency|floatformat:4}}% </td>
 
             {% if i.price_change_percentage_24h_in_currency > 0 %}
             <td style="color: green">+
             {% else %}
             <td style="color:red">
             {% endif %}
-            {{i.price_change_percentage_24h_in_currency|floatformat:8}}% </td>
+            {{i.price_change_percentage_24h_in_currency|floatformat:4}}% </td>
 
             {% if i.price_change_percentage_7d_in_currency > 0 %}
             <td style="color: green">+
             {% else %}
             <td style="color:red">
             {% endif %}
-            {{i.price_change_percentage_7d_in_currency|floatformat:8}}% </td>
+            {{i.price_change_percentage_7d_in_currency|floatformat:4}}% </td>
 
             <td>${{i.market_cap|intcomma}}</td>
             
