@@ -1,5 +1,9 @@
 
 {% load static %}
+{% load humanize %}
+{% load mathfilters %}
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,32 +39,36 @@
 
         {% endif %}
         
-        <div class="container" style="border:1px solid black">
-            <div class="row">
-                <div class="col" style="margin-top: auto">
-                    <h2>Buy and trade virtually with our trading simulation on #WebsiteName</h2><br><br>
-                        <a href="signin.html" class="btn btn-dark" role="button" style="text-align: center;">Get Started</a>
+        <div class="container">
+            <div class="row" style="height: 500px;">
+                <div class="col" style="margin-top: auto; margin-bottom:auto; text-align: center;">
+                    <h2>Buy and trade virtually with our trading simulation on Cryptocurrency</h2>
+                        <a href="signin.html" class="btn btn-outline-dark" role="button" style="margin-top:50px">Get Started</a>
                 </div>
-                <div class="col" style="margin-top:50px"><img src="{% static '/images/tradingsimulationHP.jpeg' %}" width="100%" ></div>
+                <div class="col" style="margin-top:auto; margin-bottom:auto;"><img src="{% static '/images/tradingsimulationHP.jpeg' %}" width="100%"></div>
             </div>
         </div>
 
-        <br><br>
-        {{popularapidata}}
+
+
 
         <table class="table">
-            <thead><tr><th style="text-align: left;">Name</th><th>Price</th><th>24h</th><th>Market Cap</th></tr></thead>
+            <h5 style="font-weight: bold;">Top 7 Trending Coins</p>
+            <thead><tr style="text-align: left;"><th>Name</th><th>Price</th><th>Market Cap Rank</th><th>Symbol</th></tr></thead>
             <tbody id='tableData'></tbody>
 
-            {% for i in popularapidata %}
-            <tr>
-                <td style="text-align:left"><img src={{i.symbol}} width="50px" style="padding-right:20px"> {{i.name}}</td>
-                <td></td>
+            {% for i in popularapidata.coins %}
+            <tr style="text-align:left">
+                <td style="text-align:left"><img src={{i.item.thumb}} style="padding-right:20px">{{i.item.name}}</td>
+                <td>${{i.item.price_btc|mul:apidata.0.current_price|floatformat:12}}</td> <!-- price was in btc, multiply the number by btc price-->
+                <td>{{i.item.market_cap_rank}}</td>
+                <td>{{i.item.symbol}}</td>
             </tr>
             {% endfor %}
 
         </table>
-        
+
+
 
     </main>
 
