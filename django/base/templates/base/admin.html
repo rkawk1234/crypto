@@ -10,3 +10,47 @@
         <div class="col" style="margin-top:50px"><img src="{% static '/images/tradingsimulationHP.jpeg' %}" width="100%" ></div>
     </div>
 </div>
+
+<main role="main" class="container-fluid">
+    <table class="table">
+
+      <thead><tr><th style="text-align: left;">Name</th><th>Price</th><th>1h</th><th>24h</th><th>7d</th><th>Market Cap</th></tr></thead>
+      <tbody id='tableData'></tbody>
+
+      <!--Django template language-->
+
+      {% for i in apidata %}
+        <tr>
+
+          <td style="text-align:left"><img src={{i.image}} width="50px" style="padding-right:20px"  > {{i.name}}</td>
+          <td>${{i.current_price|intcomma}}</td>
+
+          {% if i.price_change_percentage_1h_in_currency > 0 %}
+          <td style="color: green">+
+          {% else %}
+          <td style="color:red">
+          {% endif %}
+          {{i.price_change_percentage_1h_in_currency|floatformat:4}}% </td>
+
+          {% if i.price_change_percentage_24h_in_currency > 0 %}
+          <td style="color: green">+
+          {% else %}
+          <td style="color:red">
+          {% endif %}
+          {{i.price_change_percentage_24h_in_currency|floatformat:4}}% </td>
+
+          {% if i.price_change_percentage_7d_in_currency > 0 %}
+          <td style="color: green">+
+          {% else %}
+          <td style="color:red">
+          {% endif %}
+          {{i.price_change_percentage_7d_in_currency|floatformat:4}}% </td>
+
+          <td>${{i.market_cap|intcomma}}</td>
+
+        </tr>
+      {% endfor %}
+      
+    </table>
+
+  </main>

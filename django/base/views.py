@@ -15,7 +15,8 @@ from .forms import CreateUserForm
 
 
 def home(request):
-    return render(request,'base/index.html')
+    popularapidata = requests.get('https://api.coingecko.com/api/v3/search/trending').json()
+    return render(request,'base/index.html', {'popularapidata':popularapidata})
 
 def popular(request):
     return render(request,'base/popularcryptos.html')
