@@ -11,17 +11,31 @@ from django.contrib.auth.decorators import login_required
 # Create your views here.
 from .models import *
 from .forms import CreateUserForm
+from rest_framework.response import Response
+from rest_framework.decorators import api_view
 # from .filters import OrderFilter
 
 
 popularapidata = requests.get('https://api.coingecko.com/api/v3/search/trending').json()
 apidata = requests.get('https://api.coingecko.com/api/v3/coins/markets?vs_currency=cad&order=market_cap_desc&per_page=100&page=1&sparkline=true&price_change_percentage=1h%2C24h%2C7d').json()
+volumeList = []
+for i in apidata:
+    volumeList.append(i['total_volume'])
+     
+volumeList.sort()
+
+@api_view(['GET'])
+def getData(request):
+    person = {'name':'Dennis','age':28}
+    return render(person,'base/practice.html')
+
 
 def home(request):
     return render(request,'base/index.html', {'popularapidata':popularapidata, 'apidata':apidata})
 
 def popular(request):
-    return render(request,'base/popularcryptos.html')
+    
+    return render(request,'base/popularcryptos.html',{'apidata':apidata, 'volumeList':volumeList})
 
 def allcryp(request):
     
