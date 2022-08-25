@@ -25,15 +25,15 @@
     <main role="main" class="container-fluid">
       <table class="table">
 
-        <thead><tr><th style="text-align: left;">Name</th><th>Price</th><th>1h</th><th>24h</th><th>7d</th><th>Market Cap</th></tr></thead>
+        <thead><tr><th style="text-align: center;">#</th><th style="text-align: left;">Name</th><th>Price (CAD)</th><th>1h</th><th>24h</th><th>7d</th><th>Market Cap</th></tr></thead>
         <tbody id='tableData'></tbody>
 
         <!--Django template language-->
 
         {% for i in apidata %}
           <tr>
-
-            <td style="text-align:left"><img src={{i.image}} width="50px" style="padding-right:20px"  > {{i.name}}</td>
+            <td style="text-align:center;"></td>
+            <td style="text-align:left"><img src={{i.image}} width="50px" style="padding-right:20px"  > {{i.name}}<small class="text-muted text-uppercase">&nbsp;&nbsp;{{i.symbol}}</small></td>
             <td>${{i.current_price|intcomma}}</td>
 
             {% if i.price_change_percentage_1h_in_currency > 0 %}
