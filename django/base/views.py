@@ -24,7 +24,6 @@ def popular(request):
     return render(request,'base/popularcryptos.html')
 
 def allcryp(request):
-    
     return render(request,'base/allcryptos.html', {'apidata':apidata})
 
 def nft(request):
