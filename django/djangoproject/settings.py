@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.humanize',
     'base',
     'rest_framework',
+    'knox',
     'mathfilters',
     
 
