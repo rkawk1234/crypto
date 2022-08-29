@@ -18,16 +18,12 @@ from rest_framework.decorators import api_view
 
 popularapidata = requests.get('https://api.coingecko.com/api/v3/search/trending').json()
 apidata = requests.get('https://api.coingecko.com/api/v3/coins/markets?vs_currency=cad&order=market_cap_desc&per_page=100&page=1&sparkline=true&price_change_percentage=1h%2C24h%2C7d').json()
-volumeList = []
-for i in apidata:
-    volumeList.append(i['total_volume'])
+# volumeList = []
+# for i in apidata:
+#     volumeList.append(i['total_volume'])
      
-volumeList.sort()
+# volumeList.sort()
 
-@api_view(['GET'])
-def getData(request):
-    person = {'name':'Dennis','age':28}
-    return render(person,'base/practice.html')
 
 
 def home(request):
@@ -35,9 +31,10 @@ def home(request):
 
 def popular(request):
     
-    return render(request,'base/popularcryptos.html',{'apidata':apidata, 'volumeList':volumeList})
+    return render(request,'base/popularcryptos.html',{'apidata':apidata})
 
 def allcryp(request):
+    
     return render(request,'base/allcryptos.html', {'apidata':apidata})
 
 def nft(request):
