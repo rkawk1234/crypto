@@ -30,6 +30,10 @@ $.ajax(settings).done(function(response){
     uni.innerHTML = response.uniswap.cad;
 });
 
+// $(document).ready(function () {
+//     $('#example').DataTable();
+// });
+
 // Crypto Table
 // let sortDirection = true;
 // let cryptoData = [
