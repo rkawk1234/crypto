@@ -55,11 +55,10 @@ td, th {
 th {
     font-weight: bold;
 }
-HEAD
 
 #tableData tr:nth-child(even) {
     background-color: #dddddd;
-} */
+}
 
 #tableData tr:hover {
     background-color: black;
