@@ -57,11 +57,11 @@ th {
     font-weight: bold;
 }
 
-tr:nth-child(even) {
+#tableData tr:nth-child(even) {
     background-color: #dddddd;
-}
+} */
 
-tr:hover {
+#tableData tr:hover {
     background-color: black;
     color: white;
 }

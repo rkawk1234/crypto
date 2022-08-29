@@ -12,9 +12,11 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css">
   
     <script>
-      $(document).ready(function () {
-        $('#example').DataTable();
+    $(document).ready(function () {
+      $('#allcryptoTable').DataTable({
+        pageLength: 50,
       });
+    });
     </script>
 </head>
 
@@ -28,10 +30,10 @@
 
     <main role="main" class="container-fluid" style="padding: 0px">
       <div class="container px-0">
-        <table class="table" id="example">
+        <table class="table" id="allcryptoTable">
 
           <thead><tr><th style="text-align: center;">#</th><th style="text-align: left;">Name</th><th>Price (CAD)</th><th>1h</th><th>24h</th><th>7d</th><th>Market Cap</th></tr></thead>
-          <tbody id='tableData'></tbody>
+          <tbody id='tableData'>
   
           <!--Django template language-->
   
@@ -66,7 +68,7 @@
   
             </tr>
           {% endfor %}
-          
+          </tbody>
         </table>
       </div>
       
