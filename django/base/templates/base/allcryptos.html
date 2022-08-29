@@ -39,7 +39,7 @@
   
           {% for i in apidata %}
             <tr>
-              <td style="text-align:center;"></td>
+              <td style="text-align:center;">{{forloop.counter}}</td>
               <td style="text-align:left"><img src={{i.image}} width="50px" style="padding-right:20px"  > {{i.name}}<small class="text-muted text-uppercase">&nbsp;&nbsp;{{i.symbol}}</small></td>
               <td>${{i.current_price|intcomma}}</td>
   
@@ -68,7 +68,9 @@
   
             </tr>
           {% endfor %}
-          </tbody>
+
+        </tbody>
+          
         </table>
       </div>
       

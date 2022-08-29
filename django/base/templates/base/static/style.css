@@ -1,9 +1,8 @@
 
 
 .container-fluid{
-    min-width: 100%;
-    min-height: 100vh;
-    position: relative;
+    width: 100%;
+    height: 100vh;
 
     /* background-image: url(images/background3.jpg); */
     background-position: center;
@@ -56,6 +55,7 @@ td, th {
 th {
     font-weight: bold;
 }
+HEAD
 
 #tableData tr:nth-child(even) {
     background-color: #dddddd;
