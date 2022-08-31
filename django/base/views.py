@@ -42,6 +42,9 @@ def allcryp(request):
     
     return render(request,'base/allcryptos.html', {'apidata':apidata})
 
+def practice(request):
+    return render(request, 'base/practice.html', {'apidata':apidata})
+
 def nft(request):
 
     return render(request,'base/NFT.html')
