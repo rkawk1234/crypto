@@ -17,6 +17,13 @@
     $(document).ready(function () {
       $('#allcryptoTable').DataTable({
         pageLength: 100,
+        info: false,
+        lengthChange: false,
+        
+        language: {
+        search: '<i class="fa fa-search"></i>',
+        searchPlaceholder: "Search"
+        }
       });
     });
     </script>
@@ -36,9 +43,7 @@
 
           <thead><tr><th style="text-align: center;">#</th><th style="text-align: left;">Name</th><th>Price (CAD)</th><th>1h</th><th>24h</th><th>7d</th><th>Market Cap</th></tr></thead>
           <tbody id='tableData'>
-  
-          <!--Django template language-->
-  
+    
           {% for i in apidata %}
             <tr>
               <td style="text-align:left;">
@@ -55,21 +60,21 @@
               {% else %}
               <td style="color:red">
               {% endif %}
-              {{i.price_change_percentage_1h_in_currency|floatformat:4}}% </td>
+              {{i.price_change_percentage_1h_in_currency|floatformat:2}}% </td>
   
               {% if i.price_change_percentage_24h_in_currency > 0 %}
               <td style="color: green">+
               {% else %}
               <td style="color:red">
               {% endif %}
-              {{i.price_change_percentage_24h_in_currency|floatformat:4}}% </td>
+              {{i.price_change_percentage_24h_in_currency|floatformat:2}}% </td>
   
               {% if i.price_change_percentage_7d_in_currency > 0 %}
               <td style="color: green">+
               {% else %}
               <td style="color:red">
               {% endif %}
-              {{i.price_change_percentage_7d_in_currency|floatformat:4}}% </td>
+              {{i.price_change_percentage_7d_in_currency|floatformat:2}}% </td>
   
               <td>${{i.market_cap|intcomma}}</td>
   
