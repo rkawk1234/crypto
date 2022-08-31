@@ -56,11 +56,30 @@ th {
     font-weight: bold;
 }
 
-#tableData tr:nth-child(even) {
+/* #tableData tr:nth-child(even) {
     background-color: #dddddd;
-}
+} */
 
 #tableData tr:hover {
-    background-color: black;
-    color: white;
+    background-color: #f2f2f2;
+    /* color: black; */
 }
+
+.page-item.active .page-link {
+    background-color: #e5e5e5 !important;
+    border: 1px solid #e5e5e5 !important;
+}
+
+.page-link {
+    color: black !important;
+}
+
+div.dataTables_wrapper div.dataTables_paginate {
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+#allcryptoTable_filter{
+    padding-top: 1em;
+}
+
