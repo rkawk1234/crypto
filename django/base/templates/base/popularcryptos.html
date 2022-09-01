@@ -41,30 +41,29 @@
       yVal.push("{{i.sparkline_in_7d.price}}")
       "{% endfor %}"
 
-      console.log(yVal[0])
 
+      console.log(yVal[1])
 
-//       const ctx = document.getElementById("myChart");
-//       const myChart = new Chart(ctx, {
-//     type: 'line',
-//     data: {
-//         labels: xVal,
-//         datasets: [{
-//             label: '# of Votes',
-//             data: yVal,
+      const ctx = document.getElementById("myChart");
+      const myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: xVal,
+        datasets: [{
+            label: '# of Votes',
+            data: yVal[0],
 
-
-//           borderWidth: 1,
-//         }]
-//     },
-//     options: {
-//         scales: {
-//             y: {
-//                 beginAtZero: true
-//             }
-//         }
-//     }
-// });
+          borderWidth: 1,
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
 
 
     </script>

@@ -44,7 +44,7 @@ table{
     border-collapse: collapse;
     width: 200%;
     border: 5;
-    text-align: right;
+    text-align: right !important;
 }
 
 td, th {
@@ -54,6 +54,7 @@ td, th {
 
 th {
     font-weight: bold;
+    text-align: right !important;
 }
 
 /* #tableData tr:nth-child(even) {
@@ -79,7 +80,17 @@ div.dataTables_wrapper div.dataTables_paginate {
     padding-bottom: 1em;
 }
 
-#allcryptoTable_filter{
+#allcryptoTable_filter {
     padding-top: 1em;
+}
+
+#paginate-button {
+    padding-right: 3px;
+    padding-left: 3px;
+}
+
+th.sorting::before th.sorting::after {
+    color: black !important;
+    opacity: 0 !important;
 }
 
