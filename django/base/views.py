@@ -22,7 +22,6 @@ apidata += requests.get('https://api.coingecko.com/api/v3/coins/markets?vs_curre
 apidata += requests.get('https://api.coingecko.com/api/v3/coins/markets?vs_currency=cad&order=market_cap_desc&per_page=250&page=3&sparkline=true&price_change_percentage=1h%2C24h%2C7d').json()
 apidata += requests.get('https://api.coingecko.com/api/v3/coins/markets?vs_currency=cad&order=market_cap_desc&per_page=250&page=4&sparkline=true&price_change_percentage=1h%2C24h%2C7d').json()
 
-
 # volumeList = []
 # for i in apidata:
 #     volumeList.append(i['total_volume'])
@@ -35,6 +34,8 @@ def home(request):
     return render(request,'base/index.html', {'popularapidata':popularapidata, 'apidata':apidata})
 
 def popular(request):
+
+
     
     return render(request,'base/popularcryptos.html',{'apidata':apidata})
 
@@ -42,8 +43,6 @@ def allcryp(request):
     
     return render(request,'base/allcryptos.html', {'apidata':apidata})
 
-def practice(request):
-    return render(request, 'base/practice.html', {'apidata':apidata})
 
 def nft(request):
 
