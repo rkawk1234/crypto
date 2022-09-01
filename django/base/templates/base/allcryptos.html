@@ -23,7 +23,11 @@
         
         language: {
         search: '<i class="fa fa-search"></i>',
-        searchPlaceholder: "Search"
+        searchPlaceholder: "Search",
+        paginate: {
+          previous: '<span><i class="fa-solid fa-chevron-left" id="paginate-button"></i>Prev.</span>',
+          next: '<span>Next<i class="fa-solid fa-chevron-right" id="paginate-button"></i></span>'
+        }
         }
       });
     });
@@ -38,11 +42,11 @@
 
   </header>
 
-    <main role="main" class="container-fluid" style="padding: 0px;">
+  <main role="main" class="container-fluid" style="padding: 0px;">
       <div class="container px-0">
         <table class="table" id="allcryptoTable">
 
-          <thead><tr><th style="text-align: center;">#</th><th style="text-align: left;">Name</th><th>Price (CAD)</th><th>1h</th><th>24h</th><th>7d</th><th>Market Cap</th></tr></thead>
+          <thead><tr><th style="text-align: center;">#</th><th style="text-align: left !important;">Name</th><th>Price (CAD)</th><th>1h</th><th>24h</th><th>7d</th><th>Market Cap</th></tr></thead>
           <tbody id='tableData'>
     
           {% for i in apidata %}
