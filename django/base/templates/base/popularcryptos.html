@@ -21,7 +21,7 @@
   <main role="main" class="container-fluid">
 
     <div>
-      <canvas id="myChart" height="400" width="400"></canvas>
+      <canvas id="myChart{{forloop.counter0}}" height="400" width="400"></canvas>
     </div>
      
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -42,28 +42,26 @@
       "{% endfor %}"
 
 
-      console.log(yVal[1])
+//       var ctx = document.getElementById("myChart"+{{forloop.counter0}}).getContext('2d');
+//       var myChart = new Chart(ctx, {
+//     type: 'line',
+//     data: {
+//         labels: xVal,
+//         datasets: [{
+//             label: '# of Votes',
+//             data: yVal[0],
 
-      const ctx = document.getElementById("myChart");
-      const myChart = new Chart(ctx, {
-    type: 'line',
-    data: {
-        labels: xVal,
-        datasets: [{
-            label: '# of Votes',
-            data: yVal[0],
-
-          borderWidth: 1,
-        }]
-    },
-    options: {
-        scales: {
-            y: {
-                beginAtZero: true
-            }
-        }
-    }
-});
+//           borderWidth: 1,
+//         }]
+//     },
+//     options: {
+//         scales: {
+//             y: {
+//                 beginAtZero: true
+//             }
+//         }
+//     }
+// });
 
 
     </script>
