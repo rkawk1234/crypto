@@ -55,13 +55,13 @@
         <div class="container px-0">
             <table class="table">
                 <h5 style="font-weight: bold;">Top 7 Trending Coins</p>
-                <thead><tr style="text-align: left;"><th>Name</th><th>Price</th><th>Market Cap Rank</th></tr></thead>
+                <thead ><th style="text-align:left">Name</th><th>Price</th><th>Market Cap Rank</th></thead>
                 <tbody id='tableData'>
     
                 {% for i in popularapidata.coins %}
-                <tr style="text-align:left">
+                <tr style="text-align:right">
                     <td style="text-align:left"><img src={{i.item.thumb}} style="padding-right:20px">{{i.item.name}}<small class="text-muted">&nbsp;&nbsp;{{i.item.symbol}}</small></td>
-                    <td>${{i.item.price_btc|mul:apidata.0.current_price|floatformat:3}}</td> <!-- price was in btc, multiply the number by btc price-->
+                    <td>${{i.item.price_btc|mul:apidata.0.current_price|floatformat:12}}</td> <!-- price was in btc, multiply the number by btc price-->
                     <td>{{i.item.market_cap_rank}}</td>
                 </tr>
                 {% endfor %}
