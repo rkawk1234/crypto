@@ -8,11 +8,14 @@ from django.conf import settings
 
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+
+# from django.base.decorators import unauthenticated_user
 # Create your views here.
 from .models import *
 from .forms import CreateUserForm
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
+from .decorators import unauthenticated_user
 # from .filters import OrderFilter
 
 
@@ -52,31 +55,30 @@ def aboutus(request):
     return render(request,'base/aboutus.html')
     
 @csrf_exempt
+@unauthenticated_user
 def signin(request):
-    if request.user.is_authenticated:
-        return redirect(home)
-    else:
-        if request.method =='POST':
-            username = request.POST.get('username')
-            password = request.POST.get('password')
+    if request.method =='POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
 
-            user = authenticate(request,username=username,password=password)
+        user = authenticate(request,username=username,password=password)
 
-            if user is not None:
-                login(request,user)
-                return redirect(home)
+        if user is not None:
+            login(request,user)
+            return redirect(home)
 
-            else:
-                messages.info(request,'Username OR password is incorrect')
+        else:
+            messages.info(request,'Username OR password is incorrect')
 
-        context = {}
-        return render(request,'base/signin.html',context)
+    context = {}
+    return render(request,'base/signin.html',context)
 
 def logoutUser(request):
     logout(request)
     return redirect(home)
 
 @csrf_exempt
+@unauthenticated_user
 def register(request):
     form = CreateUserForm()
 
