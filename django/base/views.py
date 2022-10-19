@@ -32,7 +32,7 @@ apidata += requests.get('https://api.coingecko.com/api/v3/coins/markets?vs_curre
 # volumeList.sort()
 
 
-
+login_required(login_url='login')
 def home(request):
     return render(request,'base/index.html', {'popularapidata':popularapidata, 'apidata':apidata})
 
@@ -65,7 +65,7 @@ def signin(request):
 
         if user is not None:
             login(request,user)
-            return redirect(home)
+            return redirect('home')
 
         else:
             messages.info(request,'Username OR password is incorrect')
@@ -75,7 +75,7 @@ def signin(request):
 
 def logoutUser(request):
     logout(request)
-    return redirect(home)
+    return redirect('home')
 
 @csrf_exempt
 @unauthenticated_user
@@ -88,7 +88,7 @@ def register(request):
             form.save()
             user = form.cleaned_data.get('username')
             messages.success(request, 'Account was created for '+ user)
-            return redirect(home)
+            return redirect('home')
     
     context = {'form': form}
 
