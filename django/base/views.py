@@ -38,7 +38,6 @@ def home(request):
 
 def popular(request):
 
-
     
     return render(request,'base/popularcryptos.html',{'apidata':apidata})
 
