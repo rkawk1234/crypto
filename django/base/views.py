@@ -25,6 +25,7 @@ apidata += requests.get('https://api.coingecko.com/api/v3/coins/markets?vs_curre
 apidata += requests.get('https://api.coingecko.com/api/v3/coins/markets?vs_currency=cad&order=market_cap_desc&per_page=250&page=3&sparkline=true&price_change_percentage=1h%2C24h%2C7d').json()
 apidata += requests.get('https://api.coingecko.com/api/v3/coins/markets?vs_currency=cad&order=market_cap_desc&per_page=250&page=4&sparkline=true&price_change_percentage=1h%2C24h%2C7d').json()
 nftapidata = requests.get('https://api.opensea.io/api/v1/collections?offset=0&limit=300').json()
+rapidapidata = requests.get('https://cannaapi1.p.rapidapi.com/strains/orderbyrating').json()
 # volumeList = []
 # for i in apidata:
 #     volumeList.append(i['total_volume'])
@@ -51,7 +52,7 @@ def nft(request):
     return render(request,'base/NFT.html',{'nftapidata':nftapidata})
 
 def aboutus(request):
-    return render(request,'base/aboutus.html')
+    return render(request,'base/aboutus.html', {'rapidapidata':rapidapidata})
     
 @csrf_exempt
 @unauthenticated_user
